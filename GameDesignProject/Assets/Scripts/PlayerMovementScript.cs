@@ -10,6 +10,8 @@ public class PlayerMovementScript : MonoBehaviour{
     public Transform feet;
     public LayerMask groundLayers;
 
+    [HideInInspector] public bool isFacingRight = true;
+
     float mx;
 
     private void Update()
@@ -23,9 +25,11 @@ public class PlayerMovementScript : MonoBehaviour{
 
         if (mx > 0f) {
             transform.localScale = new Vector3(1f, 1f, 1f);
+            isFacingRight = true;
         } else if (mx < 0f)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
+            isFacingRight = false;
         }
     }
 
